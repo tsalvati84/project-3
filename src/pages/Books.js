@@ -3,9 +3,11 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-
+import Clock from "../components/Clock";
+import Moment from "react-moment";
 
 class News extends Component {
+
   
 
 
@@ -22,7 +24,10 @@ class News extends Component {
 
           <Col size="md-4">
             <Jumbotron>
-              <h1>Google Maps API</h1>
+              
+              <Clock>
+
+              </Clock>
             
             </Jumbotron>
           </Col>
@@ -42,6 +47,7 @@ class News extends Component {
           <Jumbotron>
               
               <h3>News Articles</h3>
+         
             </Jumbotron>
             </Col>
           </Row>
