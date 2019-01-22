@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+
 import Jumbotron from "../components/Jumbotron";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Clock from "../components/Clock";
 import Moment from "react-moment";
 import Calendar from 'react-calendar/dist/entry.nostyle';
-
+import GenericWeather from "../components/Weather";
 
 class News extends Component {
   
@@ -32,7 +32,7 @@ class News extends Component {
           
           <Col size="md-6">
             <Jumbotron>
-              <h1>Weather API</h1>
+              <GenericWeather></GenericWeather>
               
             </Jumbotron>
            
