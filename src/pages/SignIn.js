@@ -18,7 +18,7 @@ class SignIn extends React.Component {
   signIn = () => {
     Auth.signIn(this.state.username, this.state.password)
       .then(user => {
-        this.props.history.push('/Books')
+        this.props.history.push('/News')
       })
       .catch(err => console.log('error signing in...: ', err))
   }

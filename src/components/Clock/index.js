@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 
+
+
 const BASE_UNIT = 'milliseconds';
 
 export default class ReactLiveClock extends React.Component {
@@ -92,8 +94,8 @@ ReactLiveClock.propTypes = {
 
 ReactLiveClock.defaultProps = {
   date: null,
-  format: 'HH:mm',
+  format: 'hh:mm',
   interval: 1000,
   ticking: false,
-  timezone: null
+  timezone: 'Arizona'
 };

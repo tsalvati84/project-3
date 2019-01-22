@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Clock from "../components/Clock";
 import Moment from "react-moment";
+import Calendar from 'react-calendar/dist/entry.nostyle';
+
 
 class News extends Component {
-
+  
   
 
 
@@ -15,24 +16,21 @@ class News extends Component {
     return (
       <Container fluid>
         <Row>
-        <Col size="md-4">
-            <Jumbotron>
-              <h1>Sports API</h1>
-            
-            </Jumbotron>
-          </Col>
+        
 
-          <Col size="md-4">
+          <Col size="md-6">
             <Jumbotron>
               
               <Clock>
 
               </Clock>
-            
+            <Calendar>
+
+            </Calendar>
             </Jumbotron>
           </Col>
           
-          <Col size="md-4">
+          <Col size="md-6">
             <Jumbotron>
               <h1>Weather API</h1>
               
@@ -46,7 +44,9 @@ class News extends Component {
           <Col size="md-12">
           <Jumbotron>
               
-              <h3>News Articles</h3>
+          
+        
+        
          
             </Jumbotron>
             </Col>

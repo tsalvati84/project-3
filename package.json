@@ -5,8 +5,10 @@
   "dependencies": {
     "aws-amplify": "^1.1.19",
     "axios": "^0.18.0",
+    "css-loader": "^2.1.0",
     "glamor": "^2.20.40",
     "react": "^16.7.0",
+    "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
     "react-live-clock": "^3.0.0",
     "react-moment": "^0.8.4",
