@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Clock from "../components/Clock";
 import Moment from "react-moment";
+import Apis from "../components/Apis";
 
 class News extends Component {
 
@@ -34,7 +35,7 @@ class News extends Component {
           
           <Col size="md-4">
             <Jumbotron>
-              <h1>Weather API</h1>
+            <Apis></Apis>
               
             </Jumbotron>
            
