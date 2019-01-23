@@ -5,20 +5,27 @@ import { Col, Row, Container } from "../components/Grid";
 import Clock from "../components/Clock";
 import Moment from "react-moment";
 import Calendar from 'react-calendar/dist/entry.nostyle';
-import GenericWeather from "../components/Weather";
+import Titles from "../components/Titles";
+import Form from "../components/Form";
+import Weather from "../components/Weather";
 
 class News extends Component {
-  
-  
-
+ 
+ 
 
   render() {
     return (
       <Container fluid>
         <Row>
-        
+        <Col size="md-4">
+            <Jumbotron>
+              
+            <h3>Sports</h3>
+           
+            </Jumbotron>
+          </Col>
 
-          <Col size="md-6">
+          <Col size="md-4">
             <Jumbotron>
               
               <Clock>
@@ -30,10 +37,15 @@ class News extends Component {
             </Jumbotron>
           </Col>
           
-          <Col size="md-6">
+          <Col size="md-4">
             <Jumbotron>
-              <GenericWeather></GenericWeather>
-              
+            <div>
+            <div>
+         <Titles />
+         <Form loadWeather={this.getWeather} />
+         <Weather />
+       </div>  
+      </div>
             </Jumbotron>
            
           </Col>
@@ -45,7 +57,7 @@ class News extends Component {
           <Jumbotron>
               
           
-        
+        <h1>Articles</h1>
         
          
             </Jumbotron>
