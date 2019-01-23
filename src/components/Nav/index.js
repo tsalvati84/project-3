@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav class="navbar navbar-inverse">
       <a className="navbar-brand" href="/">
-        News Scraper
+        <b>Daily News 5000</b>
       </a>
       <a href="/">Food</a>
       <a href="/">Sports</a>

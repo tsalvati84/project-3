@@ -27,13 +27,9 @@ class News extends Component {
 
           <Col size="md-4">
             <Jumbotron>
+              <Clock></Clock>
               
-              <Clock>
-
-              </Clock>
-            <Calendar>
-
-            </Calendar>
+            <Calendar></Calendar>
             </Jumbotron>
           </Col>
           
