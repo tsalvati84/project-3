@@ -2,7 +2,7 @@
   "name": "news_scraper",
   "version": "0.1.0",
   "private": true,
-  "engines": "10.3.0",
+  "engine": "8.11.3",
   "dependencies": {
     "async": "^2.6.1",
     "await": "^0.2.6",
