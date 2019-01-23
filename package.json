@@ -14,7 +14,7 @@
     "css-loader": "^2.1.0",
     "form": "^0.2.4",
     "glamor": "^2.20.40",
-    "mysportsfeeds-node": "^1.0.1",
+    "mysportsfeeds-node": "^2.0.1",
     "react": "^16.7.0",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
