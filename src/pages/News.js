@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 import Clock from "../components/Clock";
-import Moment from "react-moment";
 import Calendar from 'react-calendar';
 import Titles from "../components/Titles";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
+import axios from "axios";
+import moment from "moment";
 
 const  Api_Key = "ede664f6620d9bc9b168f4a7378a2778";
 
@@ -44,6 +45,18 @@ class News extends Component {
       })
     }
   }
+
+  state = {
+    scrapeResults: []
+  }
+  componentDidMount() {
+    axios.get('/api/scrape')
+      .then(res => {
+        this.setState({ scrapeResults: res.data });
+      })
+      .catch(e => console.error(e));
+  }
+
   render() {
     return (
       <Container fluid>
@@ -54,13 +67,24 @@ class News extends Component {
             <h3>Sports</h3>
            
             </Jumbotron>
+
           </Col>
 
           <Col size="md-4">
             <Jumbotron>
-              <Clock></Clock>
+            <Clock
+      style={{fontSize: '1.5em'}}
+      format={'h:mm:ssa'}
+      ticking={true} />
               
-            <Calendar></Calendar>
+              <div>
+        <Calendar
+          onChange={this.onChange}
+          value={this.state.date}
+          date={moment("01/25/2019", "MM/DD/YYYY")}
+          
+        />
+      </div>
             </Jumbotron>
           </Col>
           
@@ -106,7 +130,14 @@ class News extends Component {
           
         <h1>Articles</h1>
         <hr></hr>
-        
+        {
+            this.state.scrapeResults.map(r => (
+              <li key={r.title}>
+                <p>Title: {r.title}</p>
+                <a href={r.link} >Click Me!</a>
+              </li>
+            ))
+          }
          
             </Jumbotron>
             </Col>
