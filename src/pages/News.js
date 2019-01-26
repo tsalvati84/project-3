@@ -6,7 +6,6 @@ import Calendar from 'react-calendar';
 import Titles from "../components/Titles";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
-import axios from "axios";
 import moment from "moment";
 
 const  Api_Key = "ede664f6620d9bc9b168f4a7378a2778";
@@ -27,7 +26,7 @@ class News extends Component {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     e.preventDefault();   
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`);
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=imperial&appid=${Api_Key}`);
     const response = await api_call.json();
     console.log(response);
     if(city && country){
@@ -44,17 +43,6 @@ class News extends Component {
         error: "Please input search values..."
       })
     }
-  }
-
-  state = {
-    scrapeResults: []
-  }
-  componentDidMount() {
-    axios.get('/api/scrape')
-      .then(res => {
-        this.setState({ scrapeResults: res.data });
-      })
-      .catch(e => console.error(e));
   }
 
   render() {
@@ -129,15 +117,7 @@ class News extends Component {
               
           
         <h1>Articles</h1>
-        <hr></hr>
-        {
-            this.state.scrapeResults.map(r => (
-              <li key={r.title}>
-                <p>Title: {r.title}</p>
-                <a href={r.link} >Click Me!</a>
-              </li>
-            ))
-          }
+        
          
             </Jumbotron>
             </Col>
