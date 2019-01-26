@@ -25,6 +25,7 @@
     "pusher-js": "^4.3.1",
     "pushid": "^1.0.0",
     "react": "^16.7.0",
+    "react-bootstrap": "^0.32.4",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
     "react-live-clock": "^3.0.0",

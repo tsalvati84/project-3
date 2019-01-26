@@ -1,8 +1,10 @@
 import React from 'react'
 import { css } from 'glamor'
 import { Auth } from 'aws-amplify'
-
 import { withRouter } from 'react-router-dom'
+import { Carousel } from 'react-bootstrap';
+import { Col, Row, Container } from "../components/Grid";
+
 
 class SignIn extends React.Component {
   state = {
@@ -40,9 +42,13 @@ class SignIn extends React.Component {
           <div {...css(styles.button)} onClick={this.signIn}>
             <p {...css(styles.buttonText)}>Sign In</p>
           </div>
+          
         </div>
+
+  
       </div>
     )
+    
   }
 }
 
