@@ -7,8 +7,15 @@ import Titles from "../components/Titles";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
 import moment from "moment";
+import { Carousel } from 'react-bootstrap';
+import Jumbotron2 from "../components/Jumbotron2";
+
+
 
 const  Api_Key = "ede664f6620d9bc9b168f4a7378a2778";
+
+
+
 
 class News extends Component {
 
@@ -51,8 +58,11 @@ class News extends Component {
         <Row>
         <Col size="md-4">
             <Jumbotron>
+            
+           
+
+             
               
-            <h3>Sports</h3>
            
             </Jumbotron>
 
@@ -87,6 +97,7 @@ class News extends Component {
                 <div className="col-xs-5 title-container">
                 <Titles />
                 </div>
+                <br></br>
                 <div className="col-xs-7 form-container">
                 <Form loadWeather={this.getWeather} />
                   <Weather
@@ -103,25 +114,16 @@ class News extends Component {
           </div>
         </div>
       </div>
-        
+        <br></br>
             </Jumbotron>
            
           </Col>
         </Row>
-        
-        <Row>
-          
-          
-          <Col size="md-12">
-          <Jumbotron>
-              
-          
-        <h1>Articles</h1>
-        
+        <Jumbotron2>
+          Articles
          
-            </Jumbotron>
-            </Col>
-          </Row>
+       </Jumbotron2>
+       
       </Container>
     );
   }

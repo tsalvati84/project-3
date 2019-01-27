@@ -8,11 +8,15 @@ require('dotenv').config({ path: 'variables.env' });
     const app = express();
 
     const pusher = new Pusher({
-      appId: process.env.PUSHER_APP_ID,
-      key: process.env.PUSHER_APP_KEY,
-      secret: process.env.PUSHER_APP_SECRET,
-      cluster: process.env.PUSHER_APP_CLUSTER,
-      encrypted: true,
+      appId: '698112',
+      key: 'a9d6d17170fc662e48eb',
+      secret: 'b0af5f4b84d568dd7e04',
+      cluster: 'us2',
+      encrypted: true
+    });
+    
+    pusher.trigger('my-channel', 'my-event', {
+      "message": "hello world"
     });
 
     const newsapi = new NewsAPI(process.env.NEWS_API_KEY);

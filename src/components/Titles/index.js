@@ -3,10 +3,10 @@ import React from 'react';
 
 const Titles = (props) =>{
   return (
-    <div>
-      <h1>Weather </h1>
+    
+      <p>Weather </p>
       
-    </div>
+    
   )
 }
 export default Titles;
