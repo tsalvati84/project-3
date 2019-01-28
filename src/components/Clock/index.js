@@ -97,5 +97,5 @@ ReactLiveClock.defaultProps = {
   format: 'hh:mm',
   interval: 1000,
   ticking: false,
-  timezone: 'Arizona'
+  timezone: 'Mountain-time-zone'
 };

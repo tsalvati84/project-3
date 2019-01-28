@@ -7,9 +7,13 @@ import Titles from "../components/Titles";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
 import moment from "moment";
-import { Carousel } from 'react-bootstrap';
-import Jumbotron2 from "../components/Jumbotron2";
-
+import Pusher from 'pusher-js';
+import pushid from 'pushid';
+import SportsFeed from '../components/sportsFeed';
+import FoodFeed from '../components/foodFeed';
+import TravelFeed from '../components/travelFeed';
+import TechFeed from '../components/technologyFeed';
+import WorldNewsFeed from '../components/worldNewsFeed';
 
 
 const  Api_Key = "ede664f6620d9bc9b168f4a7378a2778";
@@ -26,6 +30,7 @@ class News extends Component {
     humidity: undefined,
     description: undefined,
     error: undefined
+   
   }
   
   getWeather = async (e) => {
@@ -50,20 +55,19 @@ class News extends Component {
         error: "Please input search values..."
       })
     }
+  
   }
 
   render() {
+    
     return (
       <Container fluid>
         <Row>
         <Col size="md-4">
             <Jumbotron>
             
-           
+           <h3>Sports Scores</h3>
 
-             
-              
-           
             </Jumbotron>
 
           </Col>
@@ -74,12 +78,13 @@ class News extends Component {
       style={{fontSize: '1.5em'}}
       format={'h:mm:ssa'}
       ticking={true} />
-              
+             
               <div>
+              <br></br> 
         <Calendar
           onChange={this.onChange}
           value={this.state.date}
-          date={moment("01/25/2019", "MM/DD/YYYY")}
+          date={moment("01/28/2019", "MM/DD/YYYY")}
           
         />
       </div>
@@ -101,12 +106,13 @@ class News extends Component {
                 <div className="col-xs-7 form-container">
                 <Form loadWeather={this.getWeather} />
                   <Weather
-                    temperature={this.state.temperature}
-                    city={this.state.city}
-                    country={this.state.country}
-                    humidity={this.state.humidity}
-                    description={this.state.description}
-                    error={this.state.error}
+                  
+temperature={this.state.temperature} 
+city={this.state.city}
+country={this.state.country}
+humidity={this.state.humidity}
+description={this.state.description}
+error={this.state.error}
                   />
                 </div>
               </div>
@@ -114,15 +120,36 @@ class News extends Component {
           </div>
         </div>
       </div>
-        <br></br>
+        
             </Jumbotron>
            
           </Col>
         </Row>
-        <Jumbotron2>
-          Articles
+        <Jumbotron>
+        <SportsFeed></SportsFeed>
+      
          
-       </Jumbotron2>
+       </Jumbotron>
+
+           <Jumbotron>
+        <FoodFeed></FoodFeed>
+         
+       </Jumbotron>
+
+           <Jumbotron>
+        <TechFeed></TechFeed>
+         
+       </Jumbotron>
+
+           <Jumbotron>
+        <TravelFeed></TravelFeed>
+         
+       </Jumbotron>
+
+           <Jumbotron>
+        <WorldNewsFeed></WorldNewsFeed>
+         
+       </Jumbotron>
        
       </Container>
     );

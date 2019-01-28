@@ -7,7 +7,7 @@ export default class MyApp extends Component {
     selectedDate:moment(),
   }
  
-  onChange = activeStartDate => this.setState({ activeStartDate })
+  onChange = activeStartDate => this.setState({ activeStartDate:new Date(2017, 0, 1) })
  
   render() {
     return (

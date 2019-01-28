@@ -15,9 +15,6 @@ require('dotenv').config({ path: 'variables.env' });
       encrypted: true
     });
     
-    pusher.trigger('my-channel', 'my-event', {
-      "message": "hello world"
-    });
 
     const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
@@ -26,7 +23,7 @@ require('dotenv').config({ path: 'variables.env' });
         q: searchTerm,
         language: 'en',
         page: pageNum,
-        pageSize: 5,
+        pageSize: 1,
       });
 
     app.use(cors());
@@ -46,7 +43,7 @@ require('dotenv').config({ path: 'variables.env' });
     }
 
     app.get('/live', (req, res) => {
-      const topic = 'sports';
+      const topic = ['Sports', 'Food', 'Travel', 'Technology', 'World News'];
       fetchNews(topic, 1)
         .then(response => {
           res.json(response.articles);

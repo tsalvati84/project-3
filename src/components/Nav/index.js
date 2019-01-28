@@ -6,12 +6,14 @@ function Nav() {
       <a className="navbar-brand" href="/">
         <b>Daily News 5000</b>
       </a>
-     <button className = 'sports-scrape'>Food</button>
-     <button className = 'sports-scrape'>Sports</button>
-     <button className = 'sports-scrape'>Technology</button>
-     <button className = 'sports-scrape'>Travel</button>
-     <button className = 'sports-scrape'>World News</button>
 
+      
+     <p class="text-white bg-dark">Sports</p>
+     <p class="text-white bg-dark">Food</p>     
+     <p class="text-white bg-dark">Technology</p>
+     <p class="text-white bg-dark">Travel</p>
+     <p class="text-white bg-dark">World News</p>
+     
     </nav>
   );
 }
