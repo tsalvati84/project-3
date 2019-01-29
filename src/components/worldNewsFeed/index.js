@@ -1,30 +1,59 @@
 import React, { Component } from 'react';
-import Pusher from 'pusher-js';
-import pushid from 'pushid';
-
-
-class WorldNewsFeed extends Component {
-  state = {
-    worldNewsItems: [],
-  }
+import moment from 'moment';
 
 
 
-  render() {
-    const WorldNewsItem = (article, id) => (
-      <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
-    );
+const Title = () => (
+	<h3>World News</h3>
+);
 
-    const worldNewsItems = this.state.worldNewsItems.map(e => WorldNewsItem(e, pushid()));
+const ArticlesListItem = ({ article }) => (
+	<article>
+		<h3>{article.title}</h3>
+		
+		<p><a href={article.url}>Link</a></p>
+	</article>
+)
+const article= 1;
+const ArticlesList = ({ articles }) => (
+	<section>
+		{articles.slice(0,4).map((article, index) => (
+			<ArticlesListItem article={article} key={index} />
+		))}
+	</section>
+);
 
-    return (
-      <div className="WorldNews">
-        <h1 className="worldNews">World News</h1>
+class WorldNewsFeed extends React.Component {
+	constructor() {
+		super();
+		
+		this.state = {
+			articles: [],
+		};
+	}
+	
+	componentDidMount() {		
+		fetch('https://newsapi.org/v1/articles?source=bbc-news&sortBy=latest&apiKey=8f135b713f1a4487b7bbb9de394a1308')
+			.then(response => response.json())
+			.then((response) => {
+				this.setState({ articles: response.articles });
+			});		
+	}
+	
+	render() {
+		return (
+            
+                
+			<div>
+                
 
-        <ul className="worldNews-items">{worldNewsItems}</ul>
-      </div>
-    );
-  }
+				<Title />
+				<ArticlesList articles={this.state.articles} />
+			</div>
+            
+            
+		);
+	}
 }
 
 export default WorldNewsFeed;

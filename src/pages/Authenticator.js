@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import { withRouter } from 'react-router-dom'
 import { Carousel } from 'react-bootstrap';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 

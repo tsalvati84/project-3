@@ -1,50 +1,59 @@
 import React, { Component } from 'react';
-import Pusher from 'pusher-js';
-import pushid from 'pushid';
+import moment from 'moment';
 
 
-class SportsFeed extends Component {
-  state = {
-    sportsItems: [],
-  }
-  componentDidMount() {
-    fetch('http://localhost:3000/News')
-      .then(response => response.json())
-      .then(articles => {
-        this.setState({
-          newsItems: [...this.state.newsItems, ...articles],
-        });
-      }).catch(error => console.log(error));
 
-    const pusher = new Pusher('a9d6d17170fc662e48eb', {
-      cluster: 'us2',
-      encrypted: true,
-    });
+const Title = () => (
+	<h3>Sports</h3>
+);
 
-    const channel = pusher.subscribe('news-channel');
-    channel.bind('update-news', data => {
-      this.setState({
-        sportsItems: [...data.articles, ...this.state.sportsItems],
-      });
-    });
-  }
+const ArticlesListItem = ({ article }) => (
+	<article>
+		<h3>{article.title}</h3>
+		
+		<p><a href={article.url}>Link</a></p>
+	</article>
+)
+const article= 1;
+const ArticlesList = ({ articles }) => (
+	<section>
+		{articles.slice(0,4).map((article, index) => (
+			<ArticlesListItem article={article} key={index} />
+		))}
+	</section>
+);
 
+class SportsFeed extends React.Component {
+	constructor() {
+		super();
+		
+		this.state = {
+			articles: [],
+		};
+	}
+	
+	componentDidMount() {		
+		fetch('https://newsapi.org/v1/articles?source=espn&sortBy=latest&apiKey=8f135b713f1a4487b7bbb9de394a1308')
+			.then(response => response.json())
+			.then((response) => {
+				this.setState({ articles: response.articles });
+			});		
+	}
+	
+	render() {
+		return (
+            
+                
+			<div>
+                
 
-  render() {
-    const NewsItem = (article, id) => (
-      <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
-    );
-
-    const sportsItems = this.state.sportsItems.map(e => sportsItems(e, pushid()));
-
-    return (
-      <div className="sportsNews">
-        <h1 className="sports">Sports</h1>
-
-        <ul className="sports-items">{sportsItems}</ul>
-      </div>
-    );
-  }
+				<Title />
+				<ArticlesList articles={this.state.articles} />
+			</div>
+            
+            
+		);
+	}
 }
 
 export default SportsFeed;

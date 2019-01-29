@@ -1,30 +1,59 @@
 import React, { Component } from 'react';
-import Pusher from 'pusher-js';
-import pushid from 'pushid';
-
-
-class TravelFeed extends Component {
-  state = {
-    travelItems: [],
-  }
+import moment from 'moment';
 
 
 
-  render() {
-    const TravelItem = (article, id) => (
-      <li key={id}><a href={`${article.url}`}>{article.title}</a></li>
-    );
+const Title = () => (
+	<h3>Travel</h3>
+);
 
-    const travelItems = this.state.travelItems.map(e => TravelItem(e, pushid()));
+const ArticlesListItem = ({ article }) => (
+	<article>
+		<h3>{article.title}</h3>
+		
+		<p><a href={article.url}>Link</a></p>
+	</article>
+)
+const article= 1;
+const ArticlesList = ({ articles }) => (
+	<section>
+		{articles.slice(0,4).map((article, index) => (
+			<ArticlesListItem article={article} key={index} />
+		))}
+	</section>
+);
 
-    return (
-      <div className="travelNews">
-        <h1 className="travel">Travel</h1>
+class TravelFeed extends React.Component {
+	constructor() {
+		super();
+		
+		this.state = {
+			articles: [],
+		};
+	}
+	
+	componentDidMount() {		
+		fetch('https://newsapi.org/v1/articles?source=national-geographic&sortBy=latest&apiKey=8f135b713f1a4487b7bbb9de394a1308')
+			.then(response => response.json())
+			.then((response) => {
+				this.setState({ articles: response.articles });
+			});		
+	}
+	
+	render() {
+		return (
+            
+                
+			<div>
+                
 
-        <ul className="tech-items">{travelItems}</ul>
-      </div>
-    );
-  }
+				<Title />
+				<ArticlesList articles={this.state.articles} />
+			</div>
+            
+            
+		);
+	}
 }
 
 export default TravelFeed;

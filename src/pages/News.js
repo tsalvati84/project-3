@@ -7,8 +7,6 @@ import Titles from "../components/Titles";
 import Form from "../components/Form";
 import Weather from "../components/Weather";
 import moment from "moment";
-import Pusher from 'pusher-js';
-import pushid from 'pushid';
 import SportsFeed from '../components/sportsFeed';
 import FoodFeed from '../components/foodFeed';
 import TravelFeed from '../components/travelFeed';
@@ -125,29 +123,46 @@ error={this.state.error}
            
           </Col>
         </Row>
-        <Jumbotron>
-        <SportsFeed></SportsFeed>
+
+        <Jumbotron2>
+          
+        <SportsFeed
+        title={this.title}
+        link={this.link}
+        ></SportsFeed>
       
          
-       </Jumbotron>
+       </Jumbotron2>
 
            <Jumbotron>
-        <FoodFeed></FoodFeed>
+        <FoodFeed
+        title={this.title}
+        link={this.link}
+        ></FoodFeed>
          
        </Jumbotron>
 
            <Jumbotron>
-        <TechFeed></TechFeed>
+        <TechFeed
+        title={this.title}
+        link={this.link}
+        ></TechFeed>
          
        </Jumbotron>
 
            <Jumbotron>
-        <TravelFeed></TravelFeed>
+        <TravelFeed
+        title={this.title}
+        link={this.link}
+        ></TravelFeed>
          
        </Jumbotron>
 
            <Jumbotron>
-        <WorldNewsFeed></WorldNewsFeed>
+        <WorldNewsFeed
+        title={this.title}
+        link={this.link}
+        ></WorldNewsFeed>
          
        </Jumbotron>
        
