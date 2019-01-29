@@ -124,7 +124,7 @@ error={this.state.error}
           </Col>
         </Row>
 
-        <Jumbotron2>
+        <Jumbotron>
           
         <SportsFeed
         title={this.title}
@@ -132,7 +132,7 @@ error={this.state.error}
         ></SportsFeed>
       
          
-       </Jumbotron2>
+       </Jumbotron>
 
            <Jumbotron>
         <FoodFeed
